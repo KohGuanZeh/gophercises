@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="center">
+        <h1>{{.Title}}</h1>
+        <div class="container">
+            {{range $story := .Story}}
+                <p>
+                    {{$story}}
+                </p>
+            {{end}}
+        </div>
+        {{if .Options}}
+            <div class="container">
+                <h2>Options</h2>
+                <ul>
+                    {{range $option := .Options}}
+                        <li>
+                            <a href="/{{$option.Arc}}">{{$option.Text}}</a>
+                        </li>
+                    {{end}}
+                </ul>
+            </div>
+        {{end}}
+    </div>
+  </body>
+</html>
